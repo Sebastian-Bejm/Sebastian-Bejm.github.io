@@ -84,37 +84,38 @@ function createPerson() {
 
     deleteBtn.addEventListener("click", deletePerson, false);
 
-    if (!(nameLength > 40 || aboutLength > 40)) {
-        person.appendChild(image);
-        person.appendChild(text);
-        person.appendChild(deleteBtn);
-        document.getElementById("people").appendChild(person);
-
-        if ("counter" in localStorage) {
-            var index = localStorage.getItem("counter");
-        } else {
-            var index = 0;
-            localStorage.setItem("counter", index);
-        }
-        
+    if (!(nameLength > 40 || aboutLength > 40)) {        
+        var artists = [];
         var p = {artistName: name, artistDesc: about, artistImage: imageURL};
-        localStorage.setItem("person" + index, JSON.stringify(p));
-        index++;
-        localStorage.setItem("counter", index);
-        //var ret = localStorage.getItem("person" + index);
-        //console.log(JSON.parse(ret));
+
+        if ("artists" in localStorage) {
+            var artists = JSON.parse(localStorage.getItem("artists"));
+            for (let i = 0; i < artists.length; i++) {
+                if (artists[i].artistName === name) {
+                    alert("Names are the same");
+                    return;
+                }
+            }
+            person.appendChild(image);
+            person.appendChild(text);
+            person.appendChild(deleteBtn);
+            document.getElementById("people").appendChild(person);
+
+            artists.push(p);
+            localStorage.setItem("artists", JSON.stringify(artists));
+        } else {
+            artists.push(p);
+            localStorage.setItem("artists", JSON.stringify(artists));
+        }
     } else {
         alert("Name or About length is greater than 40");
     } 
 
 }
 
-function clear() {
-    localStorage.clear();
-}
-
-document.getElementById("clearLocal").addEventListener("click", clear);
-
+/*
+* Search up the person by characters included in the name
+*/
 function searchPerson() {
     var searchStr = document.getElementById("searchArtist").value;
     if (searchStr.length === 0) {
@@ -122,32 +123,21 @@ function searchPerson() {
         return;
     }
 
-    var maxCounter = JSON.parse(localStorage.getItem("counter"));
-    for (let i = 0; i < maxCounter; i++) {
-        var item;
-        if (localStorage.getItem("person"+i) === null) {
-            continue;
-        } else {
-            item = JSON.parse(localStorage.getItem("person"+i));
-        }
-        
-        if (item.artistName.toUpperCase().includes(searchStr.toUpperCase())) {
-            addPerson(item);
-            return;
+    var artists = JSON.parse(localStorage.getItem("artists"));
+    for (let i = 0; i < artists.length; i++) {
+        if (artists[i].artistName.toUpperCase().includes(searchStr.toUpperCase())) {
+            addPerson(artists[i]);
         }
     }
-    alert("Nothing found in storage");
-
-
 }
 
+/*
+* Adds a new person as an item to the array
+*/
 function addPerson(item) {
     var name = item.artistName;
     var about = item.artistDesc;
     var imageURL = item.artistImage;
-
-    var nameLength = name.length;
-    var aboutLength = about.length;
 
     let person = document.createElement("div");
     person.id = "person";
@@ -175,15 +165,10 @@ function addPerson(item) {
 
     deleteBtn.addEventListener("click", deletePerson, false);
 
-    if (!(nameLength > 40 || aboutLength > 40)) { 
-        person.appendChild(image);
-        person.appendChild(text);
-        person.appendChild(deleteBtn);
-        document.getElementById("people").appendChild(person);
-    } else {
-        alert("Name or About length is greater than 40");
-    } 
-    
+    person.appendChild(image);
+    person.appendChild(text);
+    person.appendChild(deleteBtn);
+    document.getElementById("people").appendChild(person);
 }
 
 // adds the event listener to the Search button
@@ -194,19 +179,18 @@ document.getElementById("searchBtn").addEventListener("click", searchPerson);
 */
 function deletePerson() {
     var thisPerson = this.parentNode;
-    var maxCounter = JSON.parse(localStorage.getItem("counter"));
+    var artists = JSON.parse(localStorage.getItem("artists"));
 
     let children = thisPerson.childNodes;
     var text = children[1];
     var paraName = text.firstChild.innerText;
 
-    for (let i = 0; i < maxCounter; i++) {
-        var item = JSON.parse(localStorage.getItem("person"+i));
-        var name = item.artistName;
-        console.log(item);
-        if (paraName === name) {
-            localStorage.removeItem("person"+i);
+    for (let i = 0; i < artists.length; i++) {
+        if (artists[i].artistName === paraName) {
+            alert(artists[i].artistName);
+            artists.splice(i, 1);
+            localStorage.setItem("artists", JSON.stringify(artists));
+            document.getElementById("people").removeChild(thisPerson);
         }
     }
-    document.getElementById("people").removeChild(thisPerson);
 }
