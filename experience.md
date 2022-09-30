@@ -1,5 +1,3 @@
-layout: page
-title: "Education and Experience"
-permalink: /experience/
+Education and Experience
 
 This should the education and experience page. Should be straightforward
