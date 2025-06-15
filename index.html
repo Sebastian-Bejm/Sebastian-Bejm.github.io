@@ -3,14 +3,13 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="styles.css">
         <title>Sebastian Bejm's Portfolio Website</title>
+        <link rel="stylesheet" href="styles.css">
     </head>
-    <!-- Add accessibility related tags (ARIA) and best practices near the end of this assignment, next time on Tuesday-->
     <body>
-        <header>
+        <header role="banner">
             <h1>Welcome to my portfolio website!</h1>
-            <nav>
+            <nav role="navigation">
                 <ul>
                     <li><a href="#home">Home</a></li>
                     <li><a href="#about">About Me</a></li>
@@ -21,49 +20,61 @@
             </nav>
         </header>
 
-        <section id="about">
-            <h2>About Me</h2>
-            <p>I am Sebastian Bejm, a graduate from BCIT's Bachelor of Technology  
-                Computer Systems (Games Development option) program. I have mainly worked on projects using
-                C#, C++ and Python, with mild exposure to web development languages. 
-                I am passionate about programming and aim to further improve my skills and 
-                learn new programming languages and related technologies for software development.</p>
-        </section>
+        <main role="main">
+            <section id="about" role="region" aria-labelledby="about-heading">
+                <h2 id="about-heading">About Me</h2>
+                <p>I am Sebastian Bejm, a graduate from BCIT's Bachelor of Technology  
+                    Computer Systems (Games Development option) program. I have mainly worked on projects using
+                    C#, C++ and Python, with mild exposure to web development languages. 
+                    I am passionate about programming and aim to further improve my skills and 
+                    learn new programming languages and related technologies for software development.</p>
+            </section>
+    
+            <section id="projects" role="region" aria-labelledby="projects-heading">
+                <h2 id="projects-heading">My Projects</h2>
+    
+                <article role="article" aria-labelledby="project1-title">
+                    <h3 id="project1-title">Project name placeholder</h3>
+                    <p>Project description placeholder</p>
+                    <figure>
+                        This is where images of a project would go.
+                    </figure>
+                </article>
 
-        <section id="projects">
-            <h2>My Projects</h2>
+            </section>
+            
+            <section id="skills" role="region" aria-labelledby="skills-heading">
+                <h2 id="skills-heading">Skills</h2>
+                <ul>
+                    <li>Programming languages: C#, C++, HTML, CSS, JavaScript</li>
+                    <li>Software: VS Code, Visual Studio, Git</li>
+                    <li>OS Competency: Windows, Android, Mac</li>
+                    <li>Collaborative and independant worker</li>
+                    <li>Highly organized with excellent written and verbal communication skills</li>
+                </ul>
+            </section>
+    
+            <section id="contact" role="form" aria-labelledby="contact-heading">
+                <h2 id="contact-heading">Contact Form</h2>
+                <form>
+                    <label for="fullname">Full Name</label><br>
+                    <input type="text" id="fullname" name="fullname"><br>
+    
+                    <label for="email">Email</label><br>
+                    <input type="text" id="email" name="email"><br>
+    
+                    <label for="message">Message</label><br>
+                    <textarea id="message" name="message" rows="5" cols="50">
+                        Leave any messages or comments.
+                    </textarea><br>
+    
+                    <input type="submit" value="Submit">
+                </form>
+            </section>
+        </main>
 
-            <article>
-                <h3>Project Name Placeholder</h3>
-                <p>Project description</p>
-                <figure>
-                    This is where images of a project would go.
-                </figure>
-            </article>
-        </section>
-        
-        <section id="skills">
-            <h2>Skills</h2>
-            <ul>
-                <li>Programming languages: C#, C++, HTML, CSS, JavaScript</li>
-                <li>Software: VS Code, Visual Studio, Git</li>
-                <li>OS Competency: Windows, Android, Mac</li>
-                <li>Collaborative and independant worker</li>
-                <li>Highly organized with excellent written and verbal communication skills</li>
-            </ul>
-        </section>
-
-        <section id="contact">
-            <h2>Contact Form</h2>
-            <form>
-                <label for="fullname">Full Name:</label><br>
-                <input type="text" id="fullname" name="fullname"><br>
-                <label for="email">Email:</label><br>
-                <input type="text" id="email" name="email"><br>
-
-                <input type="submit" value="Submit">
-            </form>
-        </section>
-
+        <footer role="contentinfo">
+            &#169 2025 Sebastian Bejm's Portfolio Site
+        </footer>
     </body>
 </html>

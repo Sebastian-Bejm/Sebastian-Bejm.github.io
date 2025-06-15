@@ -1,0 +1,27 @@
+header {
+    padding: 1rem 0;
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+nav {
+    padding: 0.5 rem;
+    text-align: center;
+}
+
+nav a {
+    margin: 0 1rem;
+    text-decoration: 0;
+}
+
+body {
+    margin: 1rem;
+    font-family: Arial, sans-serif;
+}
+
+#about {
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+
