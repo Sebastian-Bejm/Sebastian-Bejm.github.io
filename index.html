@@ -1,62 +1,69 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <title>
-        Sebastian home page
-    </title>
-    <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
-    <style>
-        body {
-            background-color: coral;
-            font-family: 'Nunito', sans-serif;
-            padding: 40px;
-        }
-    </style>
-</head>
-<body>
-<h1>
-    Sebstian Bejm
-</h1>
-<h2>About me</h2>
-<p>
-    I am a Term 4 CST student at BCIT, and in my spare time I play video games and watch Netflix.
-</p>
-<table>
-    <tr>
-        <th>Courses (Winter 2020)</th>
-        <th>&nbsp;&nbsp;&nbsp;4711 Labs</th>
-    </tr>
-    <tr>
-        <td>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styles.css">
+        <title>Sebastian Bejm's Portfolio Website</title>
+    </head>
+    <!-- Add accessibility related tags (ARIA) and best practices near the end of this assignment, next time on Tuesday-->
+    <body>
+        <header>
+            <h1>Welcome to my portfolio website!</h1>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Me</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <section id="about">
+            <h2>About Me</h2>
+            <p>I am Sebastian Bejm, a graduate from BCIT's Bachelor of Technology  
+                Computer Systems (Games Development option) program. I have mainly worked on projects using
+                C#, C++ and Python, with mild exposure to web development languages. 
+                I am passionate about programming and aim to further improve my skills and 
+                learn new programming languages and related technologies for software development.</p>
+        </section>
+
+        <section id="projects">
+            <h2>My Projects</h2>
+
+            <article>
+                <h3>Project Name Placeholder</h3>
+                <p>Project description</p>
+                <figure>
+                    This is where images of a project would go.
+                </figure>
+            </article>
+        </section>
+        
+        <section id="skills">
+            <h2>Skills</h2>
             <ul>
-                <li>
-                    <a href="https://www.bcit.ca/study/outlines/20201047992">COMP 4711</a>
-                </li>
-                <li>
-                    <a href="https://www.bcit.ca/study/outlines/20201012716">COMP 3600</a>
-                </li>
-                <li>
-                    <a href="https://www.bcit.ca/study/outlines/20201073687">COMP 4735</a>
-                </li>
-                <li>
-                    <a href="https://www.bcit.ca/study/outlines/20201042447">COMP 4995</a>
-                </li>
-                <li>
-                    <a href="https://www.bcit.ca/study/outlines/20201086089">COMP 3042</a>
-                </li>
-                <li>
-                    <a href="https://www.bcit.ca/study/outlines/20201042403">COMP 4932</a>
-                </li>
+                <li>Programming languages: C#, C++, HTML, CSS, JavaScript</li>
+                <li>Software: VS Code, Visual Studio, Git</li>
+                <li>OS Competency: Windows, Android, Mac</li>
+                <li>Collaborative and independant worker</li>
+                <li>Highly organized with excellent written and verbal communication skills</li>
             </ul>
-        </td>
-        <td>
-            <ul>
-                <li>
-                    <a href="#">Lab 1</a>
-                </li>
-            </ul>
-        </td>
-    </tr>
-</table>
-</body>
+        </section>
+
+        <section id="contact">
+            <h2>Contact Form</h2>
+            <form>
+                <label for="fullname">Full Name:</label><br>
+                <input type="text" id="fullname" name="fullname"><br>
+                <label for="email">Email:</label><br>
+                <input type="text" id="email" name="email"><br>
+
+                <input type="submit" value="Submit">
+            </form>
+        </section>
+
+    </body>
 </html>
