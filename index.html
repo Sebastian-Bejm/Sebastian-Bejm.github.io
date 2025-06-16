@@ -39,9 +39,15 @@
     
             <section id="projects" role="region" aria-labelledby="projects-heading">
                 <h2 id="projects-heading">My Projects</h2>
+                <div class="filters">
+                    <button onclick="filterProjects('all')">All</button>
+                    <button onclick="filterProjects('unity')">Unity</button>
+                    <button onclick="filterProjects('cpp')">C++</button>
+                    <button onclick="filterProjects('ml')">Machine Learning</button>
+                </div>
                 <div class="project-cards">
 
-                    <article role="article" aria-labelledby="project1-title">
+                    <article class="project unity" role="article" aria-labelledby="project1-title">
                         <h3 id="project1-title">Keyboard Warriors (Unity Game)</h3>
                         <p>Collaborated with a team of four to create a turn-based RPG for Windows, developed with Unity engine. 
                             The player gets to fight through waves of enemies in battles, and they level up in the process.
@@ -49,7 +55,7 @@
                         <img src="images/keyboard-warriors.png" alt="Turn-based combat in Keyboard Warriors">
                     </article>
 
-                    <article role="article" aria-labelledby="project2-title">
+                    <article class="project cpp" role="article" aria-labelledby="project2-title">
                         <h3 id="project2-title">Edgar the Exterminator (C++ Game)</h3>
                         <p>Collaborated with a team to design and program an arcade platformer for Windows, developed with C++
                             and the OpenGL API. The player controls a character that can move and jump around, while shooting
@@ -59,9 +65,9 @@
                         <img src="images/edgar-exterminator.png" alt="Gameplay of Edgar The Exterminator">
                     </article>
 
-                    <article role="article" aria-labelledby="project3-title">
+                    <article class="project ml" role="article" aria-labelledby="project3-title">
                         <h3 id="project3-title">Machine Learning implementation for Real-time Pathfinding</h3>
-                        <p>This project was an attempt to implement a machine learning algorithm as an application of real-time
+                        <p>This project was an attempt to implement a machine learning algorithm using C++ as an application of real-time
                             pathfinding in a simple game based on navigating randomly generated mazes with obstacles. The algorithm
                             used was the Q-Learning algorithm, in which data is passed to the AI model to determine where to go in
                             the maze.
