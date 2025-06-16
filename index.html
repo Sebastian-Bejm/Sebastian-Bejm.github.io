@@ -98,16 +98,19 @@
     
             <section id="contact" role="form" aria-labelledby="contact-heading">
                 <h2 id="contact-heading">Contact Form</h2>
-                <form>
+                <form id="contact-form">
                     <label for="fullname">Full Name</label><br>
-                    <input type="text" id="fullname" name="fullname"><br>
+                    <input type="text" id="fullname" name="fullname" required><br>
+                    <span class="error" id="error-name"></span><br>
     
                     <label for="email">Email</label><br>
-                    <input type="text" id="email" name="email"><br>
+                    <input type="text" id="email" name="email" required><br>
+                    <span class="error" id="error-email"></span><br>
     
                     <label for="message">Message</label><br>
-                    <textarea id="message" name="message" rows="4" cols="50">Leave any messages or comments.</textarea><br>
+                    <textarea id="message" name="message" rows="4" cols="50" required></textarea><br>
                     <input type="submit" value="Submit">
+                    <span class="error" id="error-message"></span><br>
                 </form>
             </section>
         </main>
